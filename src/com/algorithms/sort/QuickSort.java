@@ -8,7 +8,7 @@ import java.util.Random;
  * 快速排序的最好情况是每次选出的关键字接近中位数
  * 稳定性:不稳定的算法
  * @author Fuyou Loong
- *
+ *s
  */
 public class QuickSort {
 
@@ -66,26 +66,26 @@ public class QuickSort {
 				while (leftPosi < rightPosi && a[leftPosi] <= blank) {
 					leftPosi++;
 				}
-				//填坑;
-				if(leftPosi!= rightPosi) {
+				// 填坑;
+				if (leftPosi != rightPosi) {
 					a[blank] = a[leftPosi];
 					blankPosi = leftPosi;
 				}
-				//向左寻找比坑基准值小的值;
-				while(leftPosi<rightPosi && a[rightPosi] >= blank) {
-					rightPosi --;
+				// 向左寻找比坑基准值小的值;
+				while (leftPosi < rightPosi && a[rightPosi] >= blank) {
+					rightPosi--;
 				}
-				//填坑;
-				if(leftPosi!=rightPosi) {
+				// 填坑;
+				if (leftPosi != rightPosi) {
 					a[blank] = a[rightPosi];
 					blankPosi = rightPosi;
 				}
 			}
-			//回填最后一个坑;
+			// 回填最后一个坑;
 			a[blankPosi] = blank;
-			//对左右区间进行排序;
-			quickSort2(a, left, leftPosi-1);
-			quickSort2(a, leftPosi+1, right);
+			// 对左右区间进行排序;
+			quickSort2(a, left, leftPosi - 1);
+			quickSort2(a, leftPosi + 1, right);
 		}
 	}
 

@@ -27,7 +27,7 @@ public class HeapSort {
 		// 建立一个堆;从最后一个非叶子节点开始调整;
 		for (int i = a.length / 2 - 1; i >= 0; i--) {
 			// 调整当前元素;
-			adjust(a, i, a.length);
+			adjust1(a, i, a.length);
 		}
 		System.out.println("建堆之后的数组");
 		for (int i = 0; i < a.length; i++) {
@@ -48,6 +48,7 @@ public class HeapSort {
 
 	// 堆调整;
 	/**
+	 * 递归版本
 	 * @param a
 	 *            堆数组
 	 * @param posi
@@ -61,7 +62,6 @@ public class HeapSort {
 		if(child>length) {
 			return;
 		}
-		// 定义要比较的孩子;默认为左儿子
 		// 先判断是否有右儿子;如果有右儿子并且比左儿子大，就将child+1;
 		if (child + 1 < length && a[child] < a[child + 1]) {
 			child++;
@@ -76,7 +76,28 @@ public class HeapSort {
 		adjust(a, child, length);
 
 	}
-
+	
+	
+	/**
+	 * 迭代版本;
+	 * @param a
+	 * @param posi
+	 * @param length
+	 */
+	private static void adjust1(int[] a, int posi, int length) {
+		int child = 0 ;
+		for(;posi*2+1<length;posi = child) {
+			child = posi * 2 + 1;
+			if(child + 1<length&&a[child]<a[child+1]) {
+				child++;
+			}
+			if(a[posi] >= a[child]) {
+				break;
+			}else {
+				swap(a,posi,child);
+			}
+		}
+	}
 	private static void swap(int[] a, int posi, int child) {
 		int temp = a[posi];
 		a[posi] = a[child];

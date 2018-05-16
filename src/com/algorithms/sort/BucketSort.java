@@ -17,7 +17,7 @@ import java.util.Random;
  *
  */
 public class BucketSort {
-	// 区间范围，暂定为20;
+	// 区间范围，暂定为3;
 	public static int STEP = 3;
 
 	public static void main(String[] args) {
